@@ -24,7 +24,7 @@ public class DespliegueSalonApplication implements CommandLineRunner {
         @Override
         public void run(String... args) throws Exception {
             // Agrega clientes al iniciar la aplicación
-            clienteService.agregarCliente(new Cliente(1, "Jhon Oscar", "Pérez", "1990-01-01"));
+            clienteService.agregarCliente(new Cliente(1, "Jhoan Esteban", "Pérez", "1990-01-01"));
             clienteService.agregarCliente(new Cliente(2, "María", "López", "1985-05-15"));
             // Agrega más clientes según sea necesario
         }
