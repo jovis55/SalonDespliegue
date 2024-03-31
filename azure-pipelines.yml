@@ -6,7 +6,6 @@
 trigger:
 - main
 
-pool: my-personal-computer
 
 jobs:
 - job: Build
@@ -35,3 +34,5 @@ jobs:
   - script: echo "Este es un paso vacío que no hace nada."
     displayName: 'Paso vacío'
   # Agregar las tareas necesarias para desplegar después de las pruebas
+   
+pool: my-personal-computer
