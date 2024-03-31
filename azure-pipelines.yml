@@ -9,14 +9,30 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- task: Maven@3
-  inputs:
-    mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.8'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package'
+jobs:
+- job: Build
+  steps:
+  - task: Maven@3
+    inputs:
+      mavenPomFile: 'pom.xml'
+      mavenOptions: '-Xmx3072m'
+      javaHomeOption: 'JDKVersion'
+      jdkVersionOption: '1.8'
+      jdkArchitectureOption: 'x64'
+      publishJUnitResults: true
+      testResultsFiles: '**/surefire-reports/TEST-*.xml'
+      goals: 'package'
+
+- job: Test
+  dependsOn: Build
+  steps:
+  - script: echo "Este es un paso vacío que no hace nada."
+    displayName: 'Paso vacío'
+  # Agregar las tareas necesarias para ejecutar las pruebas después de la construcción
+
+- job: Deploy
+  dependsOn: Test
+  steps:
+  - script: echo "Este es un paso vacío que no hace nada."
+    displayName: 'Paso vacío'
+  # Agregar las tareas necesarias para desplegar después de las pruebas
