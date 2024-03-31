@@ -13,7 +13,7 @@ public class DespliegueSalonApplication {
 
     @GetMapping("/mensaje")
     public String mensaje(){
-        return "Bienvenido";
+        return "Bienvenido juancho";
     }
     public static void main(String[] args) {
         SpringApplication.run(DespliegueSalonApplication.class, args);
